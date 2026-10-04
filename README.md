@@ -48,9 +48,9 @@ flowchart TB
 Getting an OS onto a board: build the image, then flash it.
 
 <dl>
-<dt><a href="https://github.com/gregordinary/boot2deb"><b>boot2deb</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/boot2deb-lang-dark.svg"><img src="cards/boot2deb-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
+<dt><a href="https://github.com/gregordinary/boot2deb"><b>boot2deb</b></a></dt>
 <dd>Builds a bootable Debian image for an SBC, laptop or tablet from layered TOML config, without root.</dd>
-<dt><a href="https://github.com/gregordinary/pyrographer"><b>pyrographer</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/pyrographer-lang-dark.svg"><img src="cards/pyrographer-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
+<dt><a href="https://github.com/gregordinary/pyrographer"><b>pyrographer</b></a></dt>
 <dd>Flashes and recovers Rockchip, StarFive JH7110 and Ingenic devices, from a CLI or a GUI.</dd>
 </dl>
 
@@ -61,11 +61,11 @@ Getting an OS onto a board: build the image, then flash it.
 Filesystems, sandboxes and packages, all built without root.
 
 <dl>
-<dt><a href="https://github.com/gregordinary/ferrosys"><b>ferrosys</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/ferrosys-lang-dark.svg"><img src="cards/ferrosys-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
+<dt><a href="https://github.com/gregordinary/ferrosys"><b>ferrosys</b></a></dt>
 <dd>Formats and reads ext2/3/4, FAT, exFAT and btrfs images in userspace, with byte-reproducible output.</dd>
-<dt><a href="https://github.com/gregordinary/ferroday-cage"><b>ferroday-cage</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/ferroday-cage-lang-dark.svg"><img src="cards/ferroday-cage-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
+<dt><a href="https://github.com/gregordinary/ferroday-cage"><b>ferroday-cage</b></a></dt>
 <dd>An unprivileged Linux sandbox that can bootstrap a Debian, Alpine or Gentoo root.</dd>
-<dt><a href="https://github.com/gregordinary/src2deb"><b>src2deb</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/src2deb-lang-dark.svg"><img src="cards/src2deb-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
+<dt><a href="https://github.com/gregordinary/src2deb"><b>src2deb</b></a></dt>
 <dd>Builds <code>.deb</code> packages from source inside a sandbox and writes a provenance manifest for each run.</dd>
 </dl>
 

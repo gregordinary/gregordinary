@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Render the profile's SVG images in cards/, each in a light and a dark version.
+"""Render the Rocket NPU project cards in cards/ as light and dark SVGs.
 
-CARDS are the large Rocket NPU cards; their descriptions and layer labels live
-below. LANG_TAGS are the muted "| Rust" labels beside repo names in the other
-sections, drawn as images because markdown can't set a text color. Star counts and languages come from the GitHub API, so rerunning this
-keeps them current. Set GH_TOKEN (or GITHUB_TOKEN) to avoid the
-unauthenticated rate limit.
+Descriptions and layer labels live in CARDS below. Star counts and languages
+come from the GitHub API, so rerunning this keeps them current. Set GH_TOKEN
+(or GITHUB_TOKEN) to avoid the unauthenticated rate limit.
 """
 import json
 import os
@@ -37,9 +35,6 @@ CARDS = [
      ["Out-of-tree rocket driver and hardware",
       "video-transcode patch sets"]),
 ]
-
-# Repos in the definition-list sections that get a language label.
-LANG_TAGS = ["boot2deb", "pyrographer", "ferrosys", "ferroday-cage", "src2deb"]
 
 # GitHub's own palette, so the cards sit naturally on the profile page.
 THEMES = {
@@ -92,24 +87,6 @@ text {{ font-family: {FONT}; }}
 '''
 
 
-def text_width(s, size=12):
-    # SVG text can't be measured here, so estimate generously: a little
-    # trailing space beats text being clipped at the image edge.
-    return sum(size * (0.56 if c.isascii() else 0.9) for c in s)
-
-
-def lang_tag(lang, t):
-    # README sets align="absmiddle", which centers the image on the line's
-    # x-height; a baseline at 12.5 of 16 then lines up with the repo name.
-    w = round(12 + text_width(lang, 13) + 2)
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="16" viewBox="0 0 {w} 16">
-<style>text {{ font-family: {FONT}; font-size: 13px; fill: {t["muted"]}; }}</style>
-<text x="1" y="12.5">|</text>
-<text x="12" y="12.5">{escape(lang)}</text>
-</svg>
-'''
-
-
 def main():
     OUT.mkdir(exist_ok=True)
     for name, layer, lines in CARDS:
@@ -117,10 +94,6 @@ def main():
         for theme, t in THEMES.items():
             svg = card(name, layer, lines, repo["stargazers_count"], repo["language"], t)
             (OUT / f"{name}-{theme}.svg").write_text(svg)
-    for name in LANG_TAGS:
-        lang = fetch(name)["language"] or ""
-        for theme, t in THEMES.items():
-            (OUT / f"{name}-lang-{theme}.svg").write_text(lang_tag(lang, t))
 
 
 if __name__ == "__main__":
