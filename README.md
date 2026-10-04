@@ -4,7 +4,7 @@ My projects are driven mostly by self-hosting interests and general curiosity, s
 
 ### Rocket NPU
 
-These projects run inference on the RK3588's NPU through the mainline `rocket` DRM-accel driver.
+These projects run inference on the RK3588 & RK3576 NPU through the mainline `rocket` DRM-accel driver.
 
 <p>
 <a href="https://github.com/gregordinary/ggml-rocket"><picture><source media="(prefers-color-scheme: dark)" srcset="cards/ggml-rocket-dark.svg"><img src="cards/ggml-rocket-light.svg" alt="ggml-rocket: Drop-in ggml backend that runs llama.cpp and whisper.cpp prefill on the RK3588 NPU" width="49%"></picture></a>
@@ -22,7 +22,7 @@ These projects run inference on the RK3588's NPU through the mainline `rocket` D
 </p>
 
 <details>
-<summary>How the stack fits together</summary>
+<summary>NPU Project Relationships</summary>
 
 ```mermaid
 flowchart TB
@@ -45,7 +45,7 @@ flowchart TB
 
 ### Device Bring-up
 
-Getting an OS onto a board: build the image, then flash it.
+Building & Flashing OS Images
 
 <dl>
 <dt><a href="https://github.com/gregordinary/boot2deb"><b>boot2deb</b></a></dt>
@@ -58,7 +58,7 @@ Getting an OS onto a board: build the image, then flash it.
 
 ### Rootless Rust Tooling
 
-Filesystems, sandboxes and packages, all built without root.
+Filesystems, sandboxes and packages, built without root.
 
 <dl>
 <dt><a href="https://github.com/gregordinary/ferrosys"><b>ferrosys</b></a></dt>
@@ -73,7 +73,7 @@ Filesystems, sandboxes and packages, all built without root.
 
 ### Hardware References
 
-Research notes written to be reused by anyone working with these chips.
+Research notes and observations written for reuse.
 
 <dl>
 <dt><a href="https://github.com/gregordinary/rockchip-npu-notes"><b>rockchip-npu-notes</b></a></dt>
