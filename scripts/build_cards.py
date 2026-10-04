@@ -2,8 +2,8 @@
 """Render the profile's SVG images in cards/, each in a light and a dark version.
 
 CARDS are the large Rocket NPU cards; their descriptions and layer labels live
-below. PILLS are the small star/language tags beside repo names in the other
-sections. Star counts and languages come from the GitHub API, so rerunning this
+below. LANG_TAGS are the muted "| Rust" labels beside repo names in the other
+sections, drawn as images because markdown can't set a text color. Star counts and languages come from the GitHub API, so rerunning this
 keeps them current. Set GH_TOKEN (or GITHUB_TOKEN) to avoid the
 unauthenticated rate limit.
 """
@@ -38,17 +38,8 @@ CARDS = [
       "video-transcode patch sets"]),
 ]
 
-# Repo -> label shown in place of the API's language (None keeps the language).
-# The reference repos are documentation, so their language would mislead.
-PILLS = {
-    "boot2deb": None,
-    "pyrographer": None,
-    "ferrosys": None,
-    "ferroday-cage": None,
-    "src2deb": None,
-    "rockchip-npu-notes": "Reference",
-    "device-ref": "Reference",
-}
+# Repos in the definition-list sections that get a language label.
+LANG_TAGS = ["boot2deb", "pyrographer", "ferrosys", "ferroday-cage", "src2deb"]
 
 # GitHub's own palette, so the cards sit naturally on the profile page.
 THEMES = {
@@ -103,25 +94,18 @@ text {{ font-family: {FONT}; }}
 
 def text_width(s, size=12):
     # SVG text can't be measured here, so estimate generously: a little
-    # trailing space inside the pill beats text spilling out of it.
+    # trailing space beats text being clipped at the image edge.
     return sum(size * (0.56 if c.isascii() else 0.9) for c in s)
 
 
-def pill(stars, label, dot, t):
-    parts, x = [], 9
-    if stars:
-        s = f"★ {stars}"
-        parts.append(f'<text x="{x}" y="14" class="m">{escape(s)}</text>')
-        x += text_width(s) + 8
-    if dot:
-        parts.append(f'<circle cx="{x + 4}" cy="10" r="4" fill="{dot}"/>')
-        x += 13
-    parts.append(f'<text x="{x}" y="14" class="m">{escape(label)}</text>')
-    w = round(x + text_width(label) + 9)
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="20" viewBox="0 0 {w} 20">
-<style>text {{ font-family: {FONT}; }} .m {{ font-size: 12px; fill: {t["muted"]}; }}</style>
-<rect x="0.5" y="0.5" width="{w - 1}" height="19" rx="9.5" fill="{t["bg"]}" stroke="{t["border"]}"/>
-{"".join(parts)}
+def lang_tag(lang, t):
+    # README sets align="absmiddle", which centers the image on the line's
+    # x-height; a baseline at 12.5 of 16 then lines up with the repo name.
+    w = round(12 + text_width(lang, 13) + 2)
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="16" viewBox="0 0 {w} 16">
+<style>text {{ font-family: {FONT}; font-size: 13px; fill: {t["muted"]}; }}</style>
+<text x="1" y="12.5">|</text>
+<text x="12" y="12.5">{escape(lang)}</text>
 </svg>
 '''
 
@@ -133,13 +117,10 @@ def main():
         for theme, t in THEMES.items():
             svg = card(name, layer, lines, repo["stargazers_count"], repo["language"], t)
             (OUT / f"{name}-{theme}.svg").write_text(svg)
-    for name, label in PILLS.items():
-        repo = fetch(name)
-        lang = repo["language"]
-        dot = None if label else LANG_COLORS.get(lang)
+    for name in LANG_TAGS:
+        lang = fetch(name)["language"] or ""
         for theme, t in THEMES.items():
-            svg = pill(repo["stargazers_count"], label or lang or "", dot, t)
-            (OUT / f"{name}-meta-{theme}.svg").write_text(svg)
+            (OUT / f"{name}-lang-{theme}.svg").write_text(lang_tag(lang, t))
 
 
 if __name__ == "__main__":

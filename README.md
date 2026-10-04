@@ -41,37 +41,43 @@ flowchart TB
 
 </details>
 
+---
+
 ### Device Bring-up
 
 Getting an OS onto a board: build the image, then flash it.
 
 <dl>
-<dt><a href="https://github.com/gregordinary/boot2deb"><b>boot2deb</b>&nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="cards/boot2deb-meta-dark.svg"><img src="cards/boot2deb-meta-light.svg" alt="" height="20" align="absmiddle"></picture></a></dt>
+<dt><a href="https://github.com/gregordinary/boot2deb"><b>boot2deb</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/boot2deb-lang-dark.svg"><img src="cards/boot2deb-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
 <dd>Builds a bootable Debian image for an SBC, laptop or tablet from layered TOML config, without root.</dd>
-<dt><a href="https://github.com/gregordinary/pyrographer"><b>pyrographer</b>&nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="cards/pyrographer-meta-dark.svg"><img src="cards/pyrographer-meta-light.svg" alt="" height="20" align="absmiddle"></picture></a></dt>
+<dt><a href="https://github.com/gregordinary/pyrographer"><b>pyrographer</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/pyrographer-lang-dark.svg"><img src="cards/pyrographer-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
 <dd>Flashes and recovers Rockchip, StarFive JH7110 and Ingenic devices, from a CLI or a GUI.</dd>
 </dl>
+
+---
 
 ### Rootless Rust Tooling
 
 Filesystems, sandboxes and packages, all built without root.
 
 <dl>
-<dt><a href="https://github.com/gregordinary/ferrosys"><b>ferrosys</b>&nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="cards/ferrosys-meta-dark.svg"><img src="cards/ferrosys-meta-light.svg" alt="" height="20" align="absmiddle"></picture></a></dt>
+<dt><a href="https://github.com/gregordinary/ferrosys"><b>ferrosys</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/ferrosys-lang-dark.svg"><img src="cards/ferrosys-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
 <dd>Formats and reads ext2/3/4, FAT, exFAT and btrfs images in userspace, with byte-reproducible output.</dd>
-<dt><a href="https://github.com/gregordinary/ferroday-cage"><b>ferroday-cage</b>&nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="cards/ferroday-cage-meta-dark.svg"><img src="cards/ferroday-cage-meta-light.svg" alt="" height="20" align="absmiddle"></picture></a></dt>
+<dt><a href="https://github.com/gregordinary/ferroday-cage"><b>ferroday-cage</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/ferroday-cage-lang-dark.svg"><img src="cards/ferroday-cage-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
 <dd>An unprivileged Linux sandbox that can bootstrap a Debian, Alpine or Gentoo root.</dd>
-<dt><a href="https://github.com/gregordinary/src2deb"><b>src2deb</b>&nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="cards/src2deb-meta-dark.svg"><img src="cards/src2deb-meta-light.svg" alt="" height="20" align="absmiddle"></picture></a></dt>
+<dt><a href="https://github.com/gregordinary/src2deb"><b>src2deb</b></a> <picture><source media="(prefers-color-scheme: dark)" srcset="cards/src2deb-lang-dark.svg"><img src="cards/src2deb-lang-light.svg" alt="Rust" height="16" align="absmiddle"></picture></dt>
 <dd>Builds <code>.deb</code> packages from source inside a sandbox and writes a provenance manifest for each run.</dd>
 </dl>
+
+---
 
 ### Hardware References
 
 Research notes written to be reused by anyone working with these chips.
 
 <dl>
-<dt><a href="https://github.com/gregordinary/rockchip-npu-notes"><b>rockchip-npu-notes</b>&nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="cards/rockchip-npu-notes-meta-dark.svg"><img src="cards/rockchip-npu-notes-meta-light.svg" alt="" height="20" align="absmiddle"></picture></a></dt>
+<dt><a href="https://github.com/gregordinary/rockchip-npu-notes"><b>rockchip-npu-notes</b></a></dt>
 <dd>The RK3588 NPU and its regcmd interface, from research and reverse engineering.</dd>
-<dt><a href="https://github.com/gregordinary/device-ref"><b>device-ref</b>&nbsp; <picture><source media="(prefers-color-scheme: dark)" srcset="cards/device-ref-meta-dark.svg"><img src="cards/device-ref-meta-light.svg" alt="" height="20" align="absmiddle"></picture></a></dt>
+<dt><a href="https://github.com/gregordinary/device-ref"><b>device-ref</b></a></dt>
 <dd>RK3288, RK3576 and RK3588 boards on mainline Linux: boot chains, device trees and errata, with every claim graded by its evidence.</dd>
 </dl>
