@@ -1,6 +1,6 @@
 ## Hi, I'm Greg
 
-I build open tooling for running mainline Linux on ARM boards, mostly Rockchip: flashing, bring-up, image building, and running models on the NPU. Along the way I write rootless Rust tools that are useful on any Linux machine.
+My projects are driven mostly by self-hosting interests and general curiosity, some purely for the sake of it. Most are open tooling for running mainline Linux on ARM boards, largely Rockchip: flashing, bring-up, image building, and running models on the NPU. A few rootless Rust tools have been built along the way to fill dependency gaps where existing tools didn't meet project design requirements. I hope these projects find utility beyond my homelab.
 
 ### Rocket NPU
 
